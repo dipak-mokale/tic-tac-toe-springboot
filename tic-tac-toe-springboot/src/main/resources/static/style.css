@@ -4,12 +4,13 @@
 
 body {
     margin: 0;
-    min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: Arial, sans-serif;
     background: #f2f4f8;
+    padding: max(16px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom));
 }
 
 .game {
@@ -64,8 +65,281 @@ h1 {
     cursor: pointer;
     background: #222;
     color: white;
+    margin-right: 10px;
 }
 
 .reset:hover {
     background: #444;
 }
+
+.player-setup {
+    padding: 20px 0;
+}
+
+.player-setup div {
+    margin: 15px 0;
+}
+
+.player-setup label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.player-setup input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #dce2ea;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+}
+
+.player-setup input:focus {
+    outline: none;
+    border-color: #222;
+}
+
+.start-game-btn {
+    width: 100%;
+    border: 0;
+    border-radius: 10px;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    background: #22a;
+    color: white;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.start-game-btn:hover {
+    background: #118;
+}
+
+.view-records-btn {
+    border: 0;
+    border-radius: 10px;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    background: #22a;
+    color: white;
+}
+
+.view-records-btn:hover {
+    background: #118;
+}
+
+.game-area {
+    padding: 10px 0;
+}
+
+.modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+}
+
+.record-item {
+    border: 1px solid #dce2ea;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+    text-align: left;
+    background: #f9f9f9;
+}
+
+.record-item p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* Celebration Animation Styles */
+.celebration-container {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 9999;
+    padding: max(16px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom));
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotateZ(360deg);
+        opacity: 0;
+    }
+}
+
+.confetti-shape {
+    position: absolute;
+    pointer-events: none;
+    animation: fall linear forwards;
+}
+
+/* Celebration Success Message Animation */
+@keyframes scaleInAndBounce {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.celebration-message {
+    position: relative;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: clamp(20px, 5vw, 36px) clamp(24px, 7vw, 48px);
+    border-radius: 20px;
+    font-size: clamp(20px, 4.5vw, 28px);
+    font-weight: bold;
+    line-height: 1.3;
+    text-align: center;
+    z-index: 10000;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: scaleInAndBounce 0.6s ease-out;
+    max-width: min(90vw, 360px);
+    width: auto;
+}
+
+.celebration-emoji {
+    position: absolute;
+    font-size: 60px;
+    animation: pulse 0.6s ease-out;
+    pointer-events: none;
+}
+
+/* Particle Styles */
+.particle {
+    position: absolute;
+    pointer-events: none;
+}
+
+.particle-circle {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.particle-square {
+    width: 6px;
+    height: 6px;
+}
+
+.particle-triangle {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 8px solid;
+}
+
+/* Color variations */
+.color-1 { background-color: #FF6B6B; }
+.color-2 { background-color: #4ECDC4; }
+.color-3 { background-color: #45B7D1; }
+.color-4 { background-color: #FFA502; }
+.color-5 { background-color: #00C9A7; }
+.color-6 { background-color: #FF6348; }
+
+@keyframes float-up {
+    0% {
+        transform: translateY(0) rotateZ(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) rotateZ(720deg);
+        opacity: 0;
+    }
+}
+
+@keyframes float-down {
+    0% {
+        transform: translateY(0) rotateZ(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(200px) rotateZ(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes float-left {
+    0% {
+        transform: translateX(0) translateY(0) rotateZ(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-200px) translateY(200px) rotateZ(-360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes float-right {
+    0% {
+        transform: translateX(0) translateY(0) rotateZ(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(200px) translateY(200px) rotateZ(360deg);
+        opacity: 0;
+    }
+}
+

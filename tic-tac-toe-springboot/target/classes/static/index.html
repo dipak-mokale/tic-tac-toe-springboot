@@ -7,24 +7,50 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<!-- Celebration Container -->
+<div id="celebration" class="celebration-container"></div>
+
 <main class="game">
     <h1>Tic Tac Toe</h1>
 
-    <p id="status">Player X's turn</p>
-
-    <div id="board" class="board">
-        <button class="cell" data-index="0"></button>
-        <button class="cell" data-index="1"></button>
-        <button class="cell" data-index="2"></button>
-        <button class="cell" data-index="3"></button>
-        <button class="cell" data-index="4"></button>
-        <button class="cell" data-index="5"></button>
-        <button class="cell" data-index="6"></button>
-        <button class="cell" data-index="7"></button>
-        <button class="cell" data-index="8"></button>
+    <div id="playerSetup" class="player-setup">
+        <div>
+            <label for="playerXName">Player X Name:</label>
+            <input type="text" id="playerXName" placeholder="Enter Player X name" value="Player X">
+        </div>
+        <div>
+            <label for="playerOName">Player O Name:</label>
+            <input type="text" id="playerOName" placeholder="Enter Player O name" value="Player O">
+        </div>
+        <button id="startGame" class="start-game-btn">Start Game</button>
     </div>
 
-    <button id="reset" class="reset">New Game</button>
+    <div id="gameArea" class="game-area" style="display:none;">
+        <p id="status">Player X's turn</p>
+
+        <div id="board" class="board">
+            <button class="cell" data-index="0"></button>
+            <button class="cell" data-index="1"></button>
+            <button class="cell" data-index="2"></button>
+            <button class="cell" data-index="3"></button>
+            <button class="cell" data-index="4"></button>
+            <button class="cell" data-index="5"></button>
+            <button class="cell" data-index="6"></button>
+            <button class="cell" data-index="7"></button>
+            <button class="cell" data-index="8"></button>
+        </div>
+
+        <button id="reset" class="reset">New Game</button>
+        <button id="viewRecords" class="view-records-btn">View Records</button>
+    </div>
+
+    <div id="recordsModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Game Records</h2>
+            <div id="recordsList"></div>
+        </div>
+    </div>
 </main>
 
 <script src="game.js"></script>
