@@ -1,0 +1,8 @@
+com\example\tictactoe\controller\GameController.class
+com\example\tictactoe\model\GameState.class
+com\example\tictactoe\repository\GameStateRepository.class
+com\example\tictactoe\TicTacToeApplication.class
+com\example\tictactoe\model\GameRecord.class
+com\example\tictactoe\repository\GameRecordRepository.class
+com\example\tictactoe\service\GameService.class
+com\example\tictactoe\model\Game.class
